@@ -5,7 +5,7 @@ var app = angular.module('inventory_system');
 
 app.controller("UserController",["$scope", function ($scope) {
     $scope.user = {
-        name:"Noman Tufail",
-        role: "Admin, Editor",
+        name: "Noman Tufail",
+        role: "Admin, Editor"
     }
 }]);
