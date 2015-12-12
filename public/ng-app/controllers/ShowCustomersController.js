@@ -3,7 +3,9 @@
  */
 var app = angular.module('inventory_system');
 
-app.controller("ShowCustomersController",["$scope","$http", function ($scope, $http) {
+app.controller("ShowCustomersController",["$scope","$http", "$firebaseArray",
+    function ($scope, $http, $firebaseArray) {
+
     $scope.contentHeader.title = "All Customers";
     $scope.customers = [];
 

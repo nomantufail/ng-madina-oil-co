@@ -3,9 +3,15 @@
  */
 var app = angular.module('inventory_system');
 
-app.controller("UserController",["$scope", function ($scope) {
+app.controller("UserController",["$scope", "$rootScope", "$AuthService", "$location",
+    function ($scope, $rootScope, $AuthService, $location) {
     $scope.user = {
         name: "Noman Tufail",
         role: "Admin, Editor"
+    };
+
+    $scope.logout = function () {
+        $AuthService.logout();
+        $location.path('/login');
     }
 }]);

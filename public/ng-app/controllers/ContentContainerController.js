@@ -5,8 +5,5 @@
 var app = angular.module('inventory_system');
 
 app.controller("ContentContainerController",["$scope", function ($scope) {
-    var contentHeader = {
-        title: "Home"
-    };
-    $scope.contentHeader = contentHeader;
+
 }]);

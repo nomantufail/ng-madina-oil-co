@@ -3,7 +3,7 @@
  */
 var app = angular.module('inventory_system');
 
-app.controller("ParentController",["$scope", function ($scope) {
+app.controller("ParentController",["$scope",function ($scope) {
     var app = {
         title: "Inventory System",
         client: "Malik Petroleum"

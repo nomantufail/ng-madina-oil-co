@@ -3,6 +3,10 @@
  */
 var app = angular.module('inventory_system');
 
-app.controller("HomeController",["$scope", function ($scope) {
+app.controller("HomeController",["$scope", "$rootScope", function ($scope, $rootScope) {
+    var contentHeader = {
+        title: $rootScope.html_title
+    };
 
+    $scope.contentHeader = contentHeader;
 }]);
