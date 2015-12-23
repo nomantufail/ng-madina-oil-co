@@ -8,6 +8,9 @@ app.run(function($rootScope, $location, $AuthService, $state) {
     $rootScope.AUTH_TOKEN = null;
     $rootScope.html_title = "Inventory System";
 
+    $rootScope.CUSTOMERS = [];
+    $rootScope.USERS = [];
+
     $rootScope.$on( "$stateChangeStart", function(event, next, current) {
 
         /*

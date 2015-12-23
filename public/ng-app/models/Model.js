@@ -24,11 +24,4 @@ function Model(){
     }
 }
 
-var Customer = Object.create(new Model());
-Customer.assign({
-    name: "Noman Tufail",
-    email: "noamntufail100@gmail.com",
-    phone_number: "03154379760",
-    address: "Lahore, Punjab, Pakistan"
-});
 

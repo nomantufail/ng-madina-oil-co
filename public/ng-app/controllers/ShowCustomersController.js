@@ -3,18 +3,10 @@
  */
 var app = angular.module('inventory_system');
 
-app.controller("ShowCustomersController",["$scope","$http", "$firebaseArray",
-    function ($scope, $http, $firebaseArray) {
+app.controller("ShowCustomersController",["$scope", "$rootScope", "$http", "$firebaseArray",
+    function ($scope, $rootScope, $http, $firebaseArray) {
 
     $scope.contentHeader.title = "All Customers";
-    $scope.customers = [];
+    $scope.customers = $rootScope.CUSTOMERS;
 
-    $http({
-        method: 'GET',
-        url: '/customers'
-    }).then(function successCallback(response) {
-        $scope.customers = response.data.customers;
-    }, function errorCallback(response) {
-        alert('oooops :((');
-    });
 }]);

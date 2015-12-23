@@ -3,16 +3,22 @@
  */
 var app = angular.module('inventory_system');
 
-app.controller("LoginController",["$rootScope", "$scope",
-    "$AuthService", "$location", "$state", "$http", "$firebaseArray",
-    function ($rootScope, $scope, $AuthService, $location, $state, $http, $firebaseArray) {
+app.controller("LoginController",["$RouteHelper", "$rootScope", "$scope",
+    "$AuthService", "$location", "$state", "$http", "$firebaseArray", "$ResourceLoader",
+    function ($RouteHelper, $rootScope, $scope, $AuthService, $location, $state, $http, $firebaseArray, $ResourceLoader) {
 
         //var ref = new Firebase("https://blistering-torch-713.firebaseio.com/test1/lies");
 
         $scope.login = function () {
             $AuthService.authenticate().then(function (token) {
                 $AuthService.setAppToken(token);
-                $location.path('/home/customers/');
+                $ResourceLoader.loadAll().then(function (response) {
+                    if(response == true)
+                        $location.path($RouteHelper.getAuthenticatedLandingUri());
+                    else
+                        console.log('can not redirect. server fucked up!!');
+                });
+
             }, function (data) {
                 alert('some thing went wrong');
             });
